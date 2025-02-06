@@ -1,48 +1,81 @@
-# Astro Starter Kit: Basics
+# File sharing PWA
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is a simple PWA that allows you to share files between devices on the same network.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Core features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+#### MVP:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- Upload file(s) and generate a link and QR to share.
+- Download the latest file(s) that's been uploaded
+- Access previous file(s)
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## Additional core features
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### Expired links
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Let users set an expiration date for the file(s)
+- Add a self-destruct feature for the file(s)
 
-## 🧞 Commands
+### Password-Protected links
 
-All commands are run from the root of the project, from a terminal:
+- Users can set a password when generating a shareable link
+- Require recipients to enter the password to download the file(s)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### File preview
 
-## 👀 Want to learn more?
+- Allow previewing of image, PDF's, and text files without downloading
+- Use a media player for audio and video files
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### QR Code sharing
+
+- Generate QR codes for sharing files
+- Scanning the code opens the file in the PWW
+
+### Drag & Drop Upload
+
+- Users can drag and drop files into the app to upload them
+
+## Advanced features that might be added
+
+### Local Storage caching
+
+- Store uploaded files locally on the device and sync across devices
+- Allow users to view offline files they have previously accessed
+
+## User profiles and permissions
+
+- Users can set visibility (public, private, group access)
+- Role-based access: some users can only view/download, while others can upload
+
+## Tagging & Categorization
+
+- Users can tag files for easy searching (e.g., "Work", "Personal", "Videos")
+- Implement smart folders that auto-group similar files.
+
+## Activity log & notifications
+
+- Show who uploaded/downloaded which files and when.
+- Push notifications when a files is uploaded or about to expire
+
+## Background Uploads & resumable uploads
+
+- If and upload is interrupted, allow resuming later without restarting
+
+## Privacy & Security
+
+### End-to-end encryption
+
+- Encrypt files before they are uploaded to ensure privacy
+- Decrypt on download
+
+### Auto-delete after inactivity
+
+- Delete old files that havn't been accessed in a long time
+- Allow users to configure retention settings
+
+### Custom domains for sharing
+
+- users can customize shareable links (e.g., `myfiles.com/1234`)
