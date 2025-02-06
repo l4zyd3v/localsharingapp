@@ -1,6 +1,6 @@
 # File sharing PWA
 
-This is a simple PWA that allows you to share files between devices on the same network.
+A PWA that allows you to share files between devices on the same network.
 
 ## Core features
 
