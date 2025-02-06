@@ -45,22 +45,22 @@ A PWA that allows you to share files between devices on the same network.
 - Store uploaded files locally on the device and sync across devices
 - Allow users to view offline files they have previously accessed
 
-## User profiles and permissions
+### User profiles and permissions
 
 - Users can set visibility (public, private, group access)
 - Role-based access: some users can only view/download, while others can upload
 
-## Tagging & Categorization
+### Tagging & Categorization
 
 - Users can tag files for easy searching (e.g., "Work", "Personal", "Videos")
 - Implement smart folders that auto-group similar files.
 
-## Activity log & notifications
+### Activity log & notifications
 
 - Show who uploaded/downloaded which files and when.
 - Push notifications when a files is uploaded or about to expire
 
-## Background Uploads & resumable uploads
+### Background Uploads & resumable uploads
 
 - If and upload is interrupted, allow resuming later without restarting
 
