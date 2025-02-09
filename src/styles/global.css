@@ -20,6 +20,12 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  background: var(--dark-blue1);
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr 10fr;
 }
 
 ul,
