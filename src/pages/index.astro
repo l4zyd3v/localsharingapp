@@ -1,9 +1,26 @@
 ---
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
+import BrowseButton from "../components/BrowseButton.astro";
+import LoadingBar from "../components/LoadingBar.astro";
 ---
 
 <Layout>
-  <Card />
-  <Card />
+  <header>header</header>
+  <main class={"main"}>
+    <Card />
+    <Card />
+    <LoadingBar />
+    <BrowseButton />
+  </main>
 </Layout>
+
+<style>
+  .main {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 5fr 1fr 2fr;
+    align-items: center;
+  }
+</style>

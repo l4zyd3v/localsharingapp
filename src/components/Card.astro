@@ -1,11 +1,18 @@
 ---
-import s from "../styles/card.module.css";
-
 type Data = [] | null;
 
 const data: Data = [];
 ---
 
-<div>
-  <div class={`${s.card}`}></div>
-</div>
+<div class={"card"}></div>
+
+<style>
+  .card {
+    background: var(--dark-blue2);
+    border-radius: var(--border-radius1);
+    height: 1rem;
+    width: 90%;
+    height: 80%;
+    justify-self: center;
+  }
+</style>
