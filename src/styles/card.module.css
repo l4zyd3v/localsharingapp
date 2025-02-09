@@ -1,0 +1,6 @@
+.card {
+  background: var(--dark-blue2);
+  border-radius: var(--border-radius1);
+  height: 20rem;
+  width: 90vw;
+}

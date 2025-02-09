@@ -1,0 +1,9 @@
+.main {
+  height: 100vh;
+  background: var(--dark-blue1);
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
