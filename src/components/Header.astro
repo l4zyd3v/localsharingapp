@@ -1,15 +1,11 @@
 ---
-
+import BurgerBtn from "./BurgerBtn.astro";
 ---
 
 <header>
   <div class="profileIcon"></div>
   <h1>Share Files & Folders</h1>
-  <div class="burgerBtn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <BurgerBtn />
 </header>
 
 <style>
@@ -39,13 +35,5 @@
     align-self: center;
     border-radius: 100%;
     background-color: white;
-  }
-  .burgerBtn {
-    border: 1px solid white;
-    align-self: center;
-    justify-self: end;
-    height: var(--icons-size);
-    width: var(--icons-size);
-    background: white;
   }
 </style>
