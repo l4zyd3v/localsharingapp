@@ -27,10 +27,15 @@
     justify-content: center;
     align-items: center;
   }
+
+  :root {
+    --icons-size: 2rem;
+  }
+
   .profileIcon {
     border: 2px solid white;
-    height: 1.4rem;
-    width: 1.4rem;
+    height: var(--icons-size);
+    width: var(--icons-size);
     align-self: center;
     border-radius: 100%;
     background-color: white;
@@ -39,8 +44,8 @@
     border: 1px solid white;
     align-self: center;
     justify-self: end;
-    height: 1.4rem;
-    width: 1.4rem;
+    height: var(--icons-size);
+    width: var(--icons-size);
     background: white;
   }
 </style>
