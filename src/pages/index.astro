@@ -8,8 +8,10 @@ import LoadingBar from "../components/LoadingBar.astro";
 <Layout>
   <header>header</header>
   <main class={"main"}>
-    <FileCard />
-    <FileCard />
+    <div class="cardWrapper">
+      <FileCard />
+      <FileCard />
+    </div>
     <LoadingBar />
     <BrowseButton />
   </main>
@@ -17,10 +19,14 @@ import LoadingBar from "../components/LoadingBar.astro";
 
 <style>
   .main {
-    height: 100%;
     display: grid;
+    height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 5fr 5fr 1fr 2fr;
+    grid-template-rows: 10fr 1fr 2fr;
     align-items: center;
+  }
+  .cardWrapper {
+    display: grid;
+    grid-gap: 2rem;
   }
 </style>

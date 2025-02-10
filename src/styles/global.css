@@ -16,16 +16,15 @@
 
 html,
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
   background: var(--dark-blue1);
 }
 
 body {
+  height: 100svh;
   display: grid;
-  grid-template-rows: 1fr 10fr;
+  grid-template-rows: 1fr 9fr;
 }
 
 ul,
