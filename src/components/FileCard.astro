@@ -1,0 +1,217 @@
+---
+const data: any = [
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "test-name",
+    extension: "jpg",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "this-is-a-files",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "a-video",
+    extension: "avi",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "textfileshared",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "a-video",
+    extension: "avi",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+  {
+    name: "textfileshared",
+    extension: "pdf",
+    size: "1.2MB",
+    date: "2021-09-01",
+  },
+];
+---
+
+<div class={"card"}>
+  <ul>
+    {
+      data.map((file: any, idx: number) => (
+        <li>
+          <label>
+            <input id={file.name + idx} type="checkbox" />
+            <span class="secondSpan">{file.name}</span>
+          </label>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="buttonWrapper">
+    <button class="clearbutton">clear</button>
+    <button class="uploadButton">upload</button>
+  </div>
+</div>
+
+<style>
+  :root {
+    --card-height: 13rem;
+  }
+
+  .card {
+    background: var(--dark-blue2);
+    border-radius: var(--border-radius1);
+    width: 85%;
+    height: var(--card-height);
+    justify-self: center;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    padding: 1rem 1.1rem;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: auto;
+    /* border: 1px solid blue; */
+    gap: 0.8rem;
+  }
+
+  li {
+    height: 100%;
+  }
+
+  label {
+    display: flex;
+    height: 1.4rem;
+  }
+
+  .checkMark {
+  }
+
+  .secondSpan {
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+    width: 100%;
+    border-radius: var(--border-radius1);
+    background-color: var(--white1);
+  }
+
+  .buttonWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    padding: 0 0.5rem;
+  }
+
+  button {
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: var(--border-radius1);
+    height: 1.8rem;
+    position: relative;
+    top: 1rem;
+  }
+
+  .clearbutton {
+    width: 5rem;
+    background: red;
+  }
+
+  .uploadButton {
+    background: green;
+  }
+</style>
