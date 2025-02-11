@@ -1,0 +1,39 @@
+---
+import BurgerBtn from "./BurgerBtn.astro";
+---
+
+<header>
+  <div class="profileIcon"></div>
+  <h1>Share Files & Folders</h1>
+  <BurgerBtn />
+</header>
+
+<style>
+  header {
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  :root {
+    --icons-size: 2rem;
+  }
+
+  .profileIcon {
+    border: 2px solid white;
+    height: var(--icons-size);
+    width: var(--icons-size);
+    align-self: center;
+    border-radius: 100%;
+    background-color: white;
+  }
+</style>

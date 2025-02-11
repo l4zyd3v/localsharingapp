@@ -1,0 +1,58 @@
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burgerButton = document.querySelector(".burgerBtn");
+
+    burgerButton &&
+      burgerButton.addEventListener("click", () => {
+        burgerButton.classList.toggle("active");
+      });
+  });
+</script>
+
+<div class="burgerBtn">
+  <div class="burgerBtn__line"></div>
+  <div class="burgerBtn__line"></div>
+  <div class="burgerBtn__line"></div>
+</div>
+
+<style>
+  .burgerBtn {
+    border: 1px solid white;
+    align-self: center;
+    justify-self: end;
+    height: var(--icons-size);
+    width: var(--icons-size);
+    background: white;
+    display: grid;
+    border-radius: 4px;
+    padding: 3px 0;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .burgerBtn__line {
+    background: black;
+    height: 5px;
+    width: 80%;
+    margin: auto;
+    border-radius: 100px;
+    transform-origin: left;
+    transition:
+      transform 0.7s ease,
+      margin 5s ease;
+  }
+
+  .burgerBtn.active .burgerBtn__line:nth-child(1) {
+    transform: rotate(402deg);
+    margin-left: 20%;
+  }
+
+  .burgerBtn.active .burgerBtn__line:nth-child(2) {
+    transform: translateX(-5rem);
+  }
+
+  .burgerBtn.active .burgerBtn__line:nth-child(3) {
+    transform: rotate(-402deg);
+    margin-left: 20%;
+  }
+</style>
