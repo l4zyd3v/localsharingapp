@@ -1,5 +1,7 @@
 <div>
-  <div class={"loading-bar"}></div>
+  <div class={"loading-bar"}>
+    <span class="innerBar"></span>
+  </div>
 </div>
 
 <style>
@@ -7,7 +9,15 @@
     background: white;
     border-radius: var(--border-radius1);
     height: 1rem;
-    width: 90%;
+    width: 77%;
     justify-self: center;
+    display: flex;
+    justify-content: start;
+  }
+  .innerBar {
+    background: yellow;
+    height: 100%;
+    width: 30%;
+    border-radius: var(--border-radius1);
   }
 </style>
