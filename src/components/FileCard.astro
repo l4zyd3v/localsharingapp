@@ -1,10 +1,12 @@
 ---
 import { data } from "../scripts/seed.ts";
+const { cardType } = Astro.props;
 ---
 
 <div class={"card"}>
   <ul>
     {
+    cardType === "upload" ? (
       data.map((file: any, idx: number) => (
         <li>
           <label>
@@ -15,25 +17,33 @@ import { data } from "../scripts/seed.ts";
           </label>
         </li>
       ))
+    ) : null
     }
   </ul>
 
   <div class="buttonWrapper">
     <button class="clearbutton">clear</button>
+    <!-- { -->
+    <!-- cardType === "download" ? ( -->
+    <!-- <button class="">QR/Link</button> -->
+    <!-- ) : null -->
+    <!-- } -->
     <button class="uploadButton">upload</button>
   </div>
 </div>
 
 <style>
   :root {
-    --card-height: 13rem;
+m   --card-height: 13rem;
   }
 
   .card {
     background: var(--dark-blue2);
     border-radius: var(--border-radius1);
     width: 90%;
+    max-width: 25rem;
     height: var(--card-height);
+ 
     justify-self: center;
     display: grid;
     grid-template-rows: 3fr 1fr;
@@ -104,4 +114,8 @@ import { data } from "../scripts/seed.ts";
   .uploadButton {
     background: var(--green1);
   }
+
+@media (min-width: 800px) {
+
+}
 </style>
