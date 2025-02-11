@@ -1,126 +1,5 @@
 ---
-const data: any = [
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "test-name",
-    extension: "jpg",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "this-is-a-files",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "a-video",
-    extension: "avi",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "textfileshared",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "a-video",
-    extension: "avi",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-  {
-    name: "textfileshared",
-    extension: "pdf",
-    size: "1.2MB",
-    date: "2021-09-01",
-  },
-];
+import { data } from "../scripts/seed.ts";
 ---
 
 <div class={"card"}>
@@ -129,8 +8,10 @@ const data: any = [
       data.map((file: any, idx: number) => (
         <li>
           <label>
-            <input id={file.name + idx} type="checkbox" />
-            <span class="secondSpan">{file.name}</span>
+            <input id={file.name + idx} type="checkbox" class="checkbox" />
+        <span class="secondSpan">
+          <!-- {file.name} -->
+        </span>
           </label>
         </li>
       ))
@@ -176,7 +57,16 @@ const data: any = [
     height: 1.4rem;
   }
 
-  .checkMark {
+  .checkbox {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: none;
+    border: 2px solid white;
+    align-self: center;
+  }
+  .checkbox:checked {
+    background-color: var(--green1);
   }
 
   .secondSpan {
