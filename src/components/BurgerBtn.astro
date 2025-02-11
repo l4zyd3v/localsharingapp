@@ -4,7 +4,9 @@
 
     burgerButton &&
       burgerButton.addEventListener("click", () => {
-        burgerButton.classList.toggle("active");
+        const isActive = burgerButton.classList.toggle("active");
+        const event = new CustomEvent("burgerToggle", { detail: { isActive } });
+        document.dispatchEvent(event);
       });
   });
 </script>
@@ -28,6 +30,7 @@
     padding: 3px 0;
     overflow: hidden;
     cursor: pointer;
+    z-index: 100;
   }
 
   .burgerBtn__line {
@@ -38,7 +41,7 @@
     border-radius: 100px;
     transform-origin: left;
     transition:
-      transform 0.7s ease,
+      transform 0.2s ease,
       margin 5s ease;
   }
 

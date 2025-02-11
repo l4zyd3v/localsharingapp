@@ -1,0 +1,83 @@
+---
+
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burgerNav = document.querySelector(".burgerNav") as HTMLElement;
+    const translucentOverlay = document.querySelector(
+      ".translucentOverlay",
+    ) as HTMLElement;
+    const burgerButton = document.querySelector(".burgerBtn") as HTMLElement;
+
+    document.addEventListener("burgerToggle", (event) => {
+      const { isActive } = (event as CustomEvent).detail;
+
+      if (!burgerNav) return;
+
+      if (isActive) {
+        burgerNav.classList.add("active");
+        translucentOverlay.classList.add("active");
+      } else {
+        burgerNav.classList.remove("active");
+        translucentOverlay.classList.remove("active");
+      }
+    });
+
+    translucentOverlay.addEventListener("click", () => {
+      burgerNav.classList.remove("active");
+      translucentOverlay.classList.remove("active");
+      burgerButton.classList.remove("active");
+    });
+  });
+</script>
+
+<nav class="burgerNav">
+  <ul>
+    <li><a href="/">home</a></li>
+    <li><a href="#">menu2</a></li>
+    <li><a href="#">menu3</a></li>
+    <li><a href="#">menu4</a></li>
+  </ul>
+</nav>
+
+<div class="translucentOverlay"></div>
+
+<style>
+  .burgerNav {
+    display: none;
+    position: absolute;
+    background: white;
+    justify-self: center;
+    top: 100%;
+    right: 2rem;
+    width: 70%;
+    height: 23rem;
+    border-radius: var(--border-radius1);
+    padding: 2rem;
+    transition: all 0.5s ease;
+    opacity: 0;
+    z-index: -1;
+
+    display: grid;
+  }
+
+  .burgerNav.active {
+    z-index: 100;
+    opacity: 1;
+  }
+  .translucentOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.8s ease;
+    z-index: -1;
+  }
+
+  .translucentOverlay.active {
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+  }
+</style>
