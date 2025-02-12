@@ -6,35 +6,33 @@ const { cardType } = Astro.props;
 <div class={"card"}>
   <ul>
     {
-    cardType === "upload" ? (
-      data.map((file: any, idx: number) => (
-        <li>
-          <label>
-            <input id={file.name + idx} type="checkbox" class="checkbox" />
-        <span class="secondSpan">
-          <!-- {file.name} -->
-        </span>
-          </label>
-        </li>
-      ))
-    ) : null
+      cardType === "upload"
+        ? data.map((file: any, idx: number) => (
+            <li>
+              <label>
+                <input id={file.name + idx} type="checkbox" class="checkbox" />
+                <span class="secondSpan" />
+              </label>
+            </li>
+          ))
+        : null
     }
   </ul>
 
-  <div class="buttonWrapper">
+  <div
+    class={cardType === "upload"
+      ? "buttonWrapperUpload"
+      : "buttonWrapperDownload"}
+  >
     <button class="clearbutton">clear</button>
-    <!-- { -->
-    <!-- cardType === "download" ? ( -->
-    <!-- <button class="">QR/Link</button> -->
-    <!-- ) : null -->
-    <!-- } -->
+
     <button class="uploadButton">upload</button>
   </div>
 </div>
 
 <style>
   :root {
-m   --card-height: 13rem;
+    --card-height: 13rem;
   }
 
   .card {
@@ -43,7 +41,7 @@ m   --card-height: 13rem;
     width: 90%;
     max-width: 25rem;
     height: var(--card-height);
- 
+
     justify-self: center;
     display: grid;
     grid-template-rows: 3fr 1fr;
@@ -88,9 +86,14 @@ m   --card-height: 13rem;
     background-color: var(--white1);
   }
 
-  .buttonWrapper {
+  .buttonWrapperUpload {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
+    padding: 0 0.5rem;
+  }
+  .buttonWrapperDownload {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1.1fr;
     padding: 0 0.5rem;
   }
 
@@ -115,7 +118,6 @@ m   --card-height: 13rem;
     background: var(--green1);
   }
 
-@media (min-width: 800px) {
-
-}
+  @media (min-width: 800px) {
+  }
 </style>
