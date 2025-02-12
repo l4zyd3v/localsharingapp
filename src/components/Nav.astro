@@ -4,7 +4,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const burgerNav = document.querySelector(".burgerNav") as HTMLElement;
+    const nav = document.querySelector(".burgerNav") as HTMLElement;
     const translucentOverlay = document.querySelector(
       ".translucentOverlay",
     ) as HTMLElement;
@@ -13,19 +13,19 @@
     document.addEventListener("burgerToggle", (event) => {
       const { isActive } = (event as CustomEvent).detail;
 
-      if (!burgerNav) return;
+      if (!nav) return;
 
       if (isActive) {
-        burgerNav.classList.add("active");
+        nav.classList.add("active");
         translucentOverlay.classList.add("active");
       } else {
-        burgerNav.classList.remove("active");
+        nav.classList.remove("active");
         translucentOverlay.classList.remove("active");
       }
     });
 
     translucentOverlay.addEventListener("click", () => {
-      burgerNav.classList.remove("active");
+      nav.classList.remove("active");
       translucentOverlay.classList.remove("active");
       burgerButton.classList.remove("active");
     });

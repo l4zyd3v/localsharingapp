@@ -33,13 +33,6 @@ body {
   grid-template-rows: 1fr 9fr;
 }
 
-@media (min-width: 600px) {
-  body {
-    grid-template-columns: 1fr 3fr 3fr;
-    grid-template-rows: 1fr 3fr 3fr 1fr;
-  }
-}
-
 ul,
 li {
   list-style: none;
@@ -49,4 +42,11 @@ li {
 
 a {
   text-decoration: none;
+}
+
+@media (min-width: 800px) {
+  body {
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 10fr;
+  }
 }

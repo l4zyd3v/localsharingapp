@@ -3,7 +3,9 @@ import { data } from "../scripts/seed.ts";
 const { cardType } = Astro.props;
 ---
 
-<div class={"card"}>
+<div
+  class={`card ${cardType === "upload" ? "cardUpload" : cardType === "download" ? "cardDownload" : null}`}
+>
   <ul>
     {
       cardType === "upload"
@@ -27,7 +29,7 @@ const { cardType } = Astro.props;
     <button class="clearbutton">clear</button>
     {
       cardType === "download" ? (
-        <button class="qrLinkButton">QR/Link</button>
+        <button class="qrLinkButton">qr/link</button>
       ) : null
     }
     <button class="uploadButton">upload</button>
@@ -126,5 +128,15 @@ const { cardType } = Astro.props;
   }
 
   @media (min-width: 800px) {
+    .card {
+      border: 2px solid white;
+      max-width: 27rem;
+      width: 100%;
+      height: 100%;
+    }
+    .cardUpload {
+    }
+    .cardDownload {
+    }
   }
 </style>
