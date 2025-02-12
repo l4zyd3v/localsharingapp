@@ -25,7 +25,11 @@ const { cardType } = Astro.props;
       : "buttonWrapperDownload"}
   >
     <button class="clearbutton">clear</button>
-
+    {
+      cardType === "download" ? (
+        <button class="qrLinkButton">QR/Link</button>
+      ) : null
+    }
     <button class="uploadButton">upload</button>
   </div>
 </div>
@@ -89,12 +93,11 @@ const { cardType } = Astro.props;
   .buttonWrapperUpload {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    padding: 0 0.5rem;
   }
   .buttonWrapperDownload {
     display: grid;
-    grid-template-columns: 1fr 1.1fr 1.1fr;
-    padding: 0 0.5rem;
+    grid-template-columns: 0.6fr 1.1fr 1.1fr;
+    gap: 0.7rem;
   }
 
   button {
@@ -110,12 +113,16 @@ const { cardType } = Astro.props;
   }
 
   .clearbutton {
-    width: 5rem;
-    background: var(--red1);
+    max-width: 5rem;
+    background-color: var(--red1);
+  }
+
+  .qrLinkButton {
+    background-color: var(--yellow1);
   }
 
   .uploadButton {
-    background: var(--green1);
+    background-color: var(--green1);
   }
 
   @media (min-width: 800px) {
