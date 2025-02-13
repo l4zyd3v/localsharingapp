@@ -1,15 +1,20 @@
 :root {
   --dark-blue1: #060d1f;
   --dark-blue2: #262d40;
-
   --white1: white;
-  --border-radius1: 15px;
-
   --green1: #61e26a;
   --red1: #e56e6e;
   --yellow1: #d0e05a;
-
   --black1: black;
+
+  --border-radius1: 15px;
+
+  --card-height: 13rem;
+  --card-width: 90%;
+  --card-max-width: 25rem;
+  --card-max-width-desktop: 27rem;
+  --card-width-desktop: 100%;
+  --card-height-desktop: 100%;
 }
 
 *,
