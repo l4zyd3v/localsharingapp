@@ -37,15 +37,11 @@ const { cardType } = Astro.props;
 </div>
 
 <style>
-  :root {
-    --card-height: 13rem;
-  }
-
   .card {
     background: var(--dark-blue2);
     border-radius: var(--border-radius1);
-    width: 90%;
-    max-width: 25rem;
+    width: var(--card-width);
+    max-width: var(--card-max-width);
     height: var(--card-height);
 
     justify-self: center;
@@ -129,10 +125,9 @@ const { cardType } = Astro.props;
 
   @media (min-width: 800px) {
     .card {
-      border: 2px solid white;
-      max-width: 27rem;
-      width: 100%;
-      height: 100%;
+      max-width: var(--card-max-width);
+      width: var(--card-width-desktop);
+      height: var(--card-height-desktop);
     }
     .cardUpload {
     }
