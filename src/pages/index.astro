@@ -4,13 +4,14 @@ import Layout from "../layouts/Layout.astro";
 import BrowseButton from "../components/BrowseButton.astro";
 import LoadingBar from "../components/LoadingBar.astro";
 import Header from "../components/Header.astro";
+import DragDropCard from "../components/DragDropCard.astro";
 ---
 
 <Layout>
   <Header />
   <main class={"main"}>
     <div class="cardWrapper">
-      <FileCard />
+      <DragDropCard />
       <FileCard />
 
       <FileCard cardType={"upload"} />

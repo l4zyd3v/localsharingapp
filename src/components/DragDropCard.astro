@@ -1,0 +1,22 @@
+<div class="dragDropCard"></div>
+
+<style>
+  .dragDropCard {
+    display: none;
+  }
+
+  @media (min-width: 800px) {
+    .dragDropCard {
+      display: grid;
+      background: var(--dark-blue2);
+      border-radius: var(--border-radius1);
+      justify-self: center;
+      display: grid;
+      grid-template-rows: 3fr 1fr;
+      padding: 1rem 1.1rem;
+      max-width: var(--card-max-width);
+      width: var(--card-width-desktop);
+      height: var(--card-height-desktop);
+    }
+  }
+</style>
