@@ -6,7 +6,7 @@ import cloudLogo from "../assets/cloud_upload_24dp_E8EAED_FILL0_wght400_GRAD0_op
   <form class="uploadArea">
     <img src={cloudLogo.src} width="115" height="48" alt="Astro Homepage" />
     <p>Drag & Drop files here</p>
-    <input type="file" class="fileInput" />
+    <input type="file" class="fileInput" multiple />
     <button class="dummyBtn">Browse Files</button>
   </form>
 </div>
@@ -84,4 +84,3 @@ import cloudLogo from "../assets/cloud_upload_24dp_E8EAED_FILL0_wght400_GRAD0_op
       });
   });
 </script>
-```

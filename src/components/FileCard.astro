@@ -143,20 +143,13 @@ const { cardType } = Astro.props;
     const fileList = document.getElementById("fileList");
 
     function updateFileList(files) {
-      console.log(files);
       if (fileList) {
-        console.log("tset");
-        fileList.innerHTML = ""; // Clear the list
         if (files.length > 0) {
           files.forEach((file) => {
             const li = document.createElement("li");
             li.textContent = file.name;
             fileList.appendChild(li);
           });
-        } else {
-          const li = document.createElement("li");
-          li.textContent = "No files uploaded yet.";
-          fileList.appendChild(li);
         }
       }
     }
