@@ -6,19 +6,18 @@ const { cardType } = Astro.props;
 <div
   class={`card ${cardType === "upload" ? "cardUpload" : cardType === "download" ? "cardDownload" : null}`}
 >
-  <ul>
-    {
-      cardType === "upload"
-        ? data.map((file: any, idx: number) => (
-            <li>
-              <label>
-                <input id={file.name + idx} type="checkbox" class="checkbox" />
-                <span class="secondSpan" />
-              </label>
-            </li>
-          ))
-        : null
-    }
+  <ul id="fileList">
+    <!-- { -->
+    <!--   cardType === "upload" -->
+    <!--     ? data.map((file: any, idx: number) => ( -->
+    <!--         <li> -->
+    <!--           <label> -->
+    <!--             <input id={file.name + idx} type="checkbox" class="checkbox" /> -->
+    <!--             <span class="secondSpan" /> -->
+    <!--           </label> -->
+    <!--         </li> -->
+    <!--       )) -->
+    <!--     : null -->
   </ul>
 
   <div
@@ -136,3 +135,36 @@ const { cardType } = Astro.props;
     }
   }
 </style>
+
+<script>
+  import { getFiles, subscribe } from "../scripts/store.ts";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const fileList = document.getElementById("fileList");
+
+    function updateFileList(files) {
+      console.log(files);
+      if (fileList) {
+        console.log("tset");
+        fileList.innerHTML = ""; // Clear the list
+        if (files.length > 0) {
+          files.forEach((file) => {
+            const li = document.createElement("li");
+            li.textContent = file.name;
+            fileList.appendChild(li);
+          });
+        } else {
+          const li = document.createElement("li");
+          li.textContent = "No files uploaded yet.";
+          fileList.appendChild(li);
+        }
+      }
+    }
+
+    // Initial load
+    updateFileList(getFiles());
+
+    // Subscribe to changes
+    subscribe(updateFileList);
+  });
+</script>
