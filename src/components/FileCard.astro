@@ -6,20 +6,14 @@ const { cardType } = Astro.props;
 <div
   class={`card ${cardType === "upload" ? "cardUpload" : cardType === "download" ? "cardDownload" : null}`}
 >
-  <ul id="fileList">
-    <!-- { -->
-    <!--   cardType === "upload" -->
-    <!--     ? data.map((file: any, idx: number) => ( -->
-    <!--         <li> -->
-    <!--           <label> -->
-    <!--             <input id={file.name + idx} type="checkbox" class="checkbox" /> -->
-    <!--             <span class="secondSpan" /> -->
-    <!--           </label> -->
-    <!--         </li> -->
-    <!--       )) -->
-    <!--     : null -->
+  <ul
+    id={cardType === "upload"
+      ? "fileListUpload"
+      : cardType === "download"
+        ? "fileListDownload"
+        : null}
+  >
   </ul>
-
   <div
     class={cardType === "upload"
       ? "buttonWrapperUpload"
@@ -33,131 +27,144 @@ const { cardType } = Astro.props;
     }
     <button class="uploadButton">upload</button>
   </div>
-</div>
 
-<style>
-  .card {
-    background: var(--dark-blue2);
-    border-radius: var(--border-radius1);
-    width: var(--card-width);
-    max-width: var(--card-max-width);
-    height: var(--card-height);
-
-    justify-self: center;
-    display: grid;
-    grid-template-rows: 3fr 1fr;
-    padding: 1rem 1.1rem;
-  }
-
-  ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    overflow-y: auto;
-    /* border: 1px solid blue; */
-    gap: 0.8rem;
-  }
-
-  li {
-    height: 100%;
-  }
-
-  label {
-    display: flex;
-    height: 1.4rem;
-  }
-
-  .checkbox {
-    appearance: none;
-    width: 1rem;
-    height: 1rem;
-    background-color: none;
-    border: 2px solid white;
-    align-self: center;
-  }
-  .checkbox:checked {
-    background-color: var(--green1);
-  }
-
-  .secondSpan {
-    display: flex;
-    align-items: center;
-    margin-left: 7px;
-    width: 100%;
-    border-radius: var(--border-radius1);
-    background-color: var(--white1);
-  }
-
-  .buttonWrapperUpload {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-  }
-  .buttonWrapperDownload {
-    display: grid;
-    grid-template-columns: 0.6fr 1.1fr 1.1fr;
-    gap: 0.7rem;
-  }
-
-  button {
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    border-radius: var(--border-radius1);
-    height: 1.8rem;
-    position: relative;
-    top: 1rem;
-  }
-
-  .clearbutton {
-    max-width: 5rem;
-    background-color: var(--red1);
-  }
-
-  .qrLinkButton {
-    background-color: var(--yellow1);
-  }
-
-  .uploadButton {
-    background-color: var(--green1);
-  }
-
-  @media (min-width: 800px) {
+  <style>
     .card {
-      border: 2px solid white;
+      background: var(--dark-blue2);
+      border-radius: var(--border-radius1);
+      width: var(--card-width);
       max-width: var(--card-max-width);
-      width: var(--card-width-desktop);
-      height: var(--card-height-desktop);
-    }
-    .cardUpload {
-    }
-    .cardDownload {
-    }
-  }
-</style>
+      height: var(--card-height);
 
-<script>
-  import { getFiles, subscribe } from "../scripts/store.ts";
+      justify-self: center;
+      display: grid;
+      grid-template-rows: 3fr 1fr;
+      padding: 1rem 1.1rem;
+    }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const fileList = document.getElementById("fileList");
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow-y: auto;
+      /* border: 1px solid blue; */
+      gap: 0.8rem;
+    }
 
-    function updateFileList(files) {
-      if (fileList) {
-        if (files.length > 0) {
-          files.forEach((file) => {
-            const li = document.createElement("li");
-            li.textContent = file.name;
-            fileList.appendChild(li);
-          });
-        }
+    :global(.fileListItem) {
+      display: flex;
+      height: 1.4rem;
+      align-items: center;
+      margin-left: 7px;
+      width: 100%;
+      border-radius: var(--border-radius1);
+      background-color: var(--white1);
+    }
+
+    :global(.checkbox) {
+      /* appearance: none; */
+      /* width: 1rem; */
+      /* height: 1rem; */
+      /* background-color: none; */
+      /* border: 2px solid white; */
+      /* align-self: center; */
+    }
+
+    :global(.checkbox:checked) {
+      background-color: var(--green1);
+    }
+
+    :global(.fileName) {
+      display: flex;
+      align-items: center;
+      margin-left: 7px;
+      width: 100%;
+      border-radius: var(--border-radius1);
+      background-color: var(--white1);
+    }
+
+    .buttonWrapperUpload {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+    }
+    .buttonWrapperDownload {
+      display: grid;
+      grid-template-columns: 0.6fr 1.1fr 1.1fr;
+      gap: 0.7rem;
+    }
+
+    button {
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: var(--border-radius1);
+      height: 1.8rem;
+      position: relative;
+      top: 1rem;
+    }
+
+    .clearbutton {
+      max-width: 5rem;
+      background-color: var(--red1);
+    }
+
+    .qrLinkButton {
+      background-color: var(--yellow1);
+    }
+
+    .uploadButton {
+      background-color: var(--green1);
+    }
+
+    @media (min-width: 800px) {
+      .card {
+        border: 2px solid white;
+        max-width: var(--card-max-width);
+        width: var(--card-width-desktop);
+        height: var(--card-height-desktop);
+      }
+      .cardUpload {
+      }
+      .cardDownload {
       }
     }
+  </style>
 
-    // Initial load
-    updateFileList(getFiles());
+  <script>
+    import { getFiles, subscribe } from "../scripts/store.ts";
 
-    // Subscribe to changes
-    subscribe(updateFileList);
-  });
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fileList = document.getElementById("fileListUpload");
+
+      function updateFileList(files: File[]) {
+        if (fileList) {
+          if (files.length > 0) {
+            files.forEach((file: { name: string }) => {
+              const li = document.createElement("li");
+              li.className = "fileListItem";
+
+              const span = document.createElement("span");
+              span.className = "fileName";
+              span.textContent = file.name;
+
+              const checkbox = document.createElement("input");
+              checkbox.className = "checkbox";
+              checkbox.type = "checkbox";
+
+              li.appendChild(checkbox);
+              li.appendChild(span);
+              fileList.appendChild(li);
+            });
+          }
+        }
+      }
+
+      // Initial load
+      updateFileList(getFiles());
+
+      // Subscribe to changes
+      subscribe(updateFileList);
+    });
+  </script>
+</div>
